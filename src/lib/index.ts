@@ -1,3 +1,3 @@
-export function main(): void {
-  console.log("Hello, world!");
-}
+import { hello } from './util'
+
+export { hello }

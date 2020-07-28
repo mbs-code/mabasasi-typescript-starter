@@ -1,18 +1,60 @@
 {
   "name": "mabasasi-typescript-starter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
-  "files": ["dist"],
-  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "dist/lib/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "scripts": {
+    "dev": "ts-node src/index.ts",
+    "dev:watch": "ts-node-dev --respawn src/index.ts",
     "prebuild": "rimraf dist",
-    "build": "tsc"
+    "build": "run-p build:*",
+    "build:common": "tsc",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "fix": "run-p fix:*",
+    "fix:eslint": "npm run lint:eslint -- --fix",
+    "fix:prettier": "npm run lint:prettier -- --write",
+    "lint": "run-p lint:*",
+    "lint:eslint": "eslint --ext js,ts .",
+    "lint:prettier": "prettier -l \"**/*.{json,md,yml}\"",
+    "lint:type": "tsc --noEmit",
+    "test": "run-s lint test:*",
+    "test:unit": "jest",
+    "coverage": "npx http-server -o coverage/lcov-report"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "9.1.1",
+    "@commitlint/config-conventional": "9.1.1",
+    "@types/jest": "^26.0.7",
+    "@types/node": "14.0.26",
+    "@typescript-eslint/eslint-plugin": "3.7.0",
+    "@typescript-eslint/parser": "3.7.0",
+    "eslint": "7.5.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-simple-import-sort": "5.0.3",
+    "husky": "4.2.5",
+    "jest": "^26.1.0",
+    "lint-staged": "10.2.11",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.0.5",
     "rimraf": "^3.0.2",
-    "typescript": "^3.9.7"
+    "ts-jest": "^26.1.3",
+    "ts-node": "8.10.2",
+    "ts-node-dev": "1.0.0-pre.56",
+    "typescript": "3.9.7"
+  },
+  "engines": {
+    "node": ">= 12",
+    "npm": ">= 6.12"
   }
 }
