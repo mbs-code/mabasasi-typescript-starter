@@ -3,6 +3,7 @@
 typescript プロジェクトの雛形。
 
 - typescript
+  - ts-node-dev
 - jest
 - eslint + prettier
 - husky

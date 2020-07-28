@@ -1,7 +1,8 @@
 {
   "name": "mabasasi-typescript-starter",
-  "version": "1.0.1",
-  "description": "",
+  "version": "1.0.0",
+  "description": "typescript project template",
+  "private": true,
   "files": [
     "dist",
     "src"
@@ -28,8 +29,8 @@
     "coverage": "npx http-server -o coverage/lcov-report"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "mabasasi",
+  "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "9.1.1",
     "@commitlint/config-conventional": "9.1.1",
